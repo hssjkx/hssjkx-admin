@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--数据库驱动-->
+    <classPathEntry    location="C:/Users/a1875/.m2/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar"/>
+    <context id="DB2Tables"    targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://47.106.215.255:3306/schoolDemo?serverTimezone=GMT%2B8" userId="test_oilpea_xyz"
+                        password="s5NpiMsmYp">
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="xyz.oilpea.schooldemo.demo.pojo" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="xyz.oilpea.schooldemo.demo.dao"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+<!--        <table tableName="alumni"></table>-->
+<!--        <table tableName="carousel"></table>-->
+<!--        <table tableName="characters"></table>-->
+<!--        <table tableName="competition"></table>-->
+<!--        <table tableName="laureate"></table>-->
+<!--        <table tableName="major"></table>-->
+<!--        <table tableName="news"></table>-->
+<!--        <table tableName="organization"></table>-->
+<!--        <table tableName="win"></table>-->
+        <!--生成对应表及类名-->
+<!--        -->
+        <table tableName="alumni"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="carousel"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="characters"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="competition"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="laureate"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="major"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="news"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="organization"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="win"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"  enableSelectByExample="false" selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>
