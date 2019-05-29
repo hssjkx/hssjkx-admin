@@ -25,9 +25,9 @@ spring:
     maxOpenPreparedStatements: 20
   freemarker:
     template-loader-path: classpath:/templates
+    suffix: .html
   mvc:
     static-path-pattern: /static/**
-  resources:
 mybatis:
   mapper-locations: classpath:/mapping/*.xml  #classpath就是应用程序resources的路径
   type-aliases-package: xyz.oilpea.schooldemo.demo.pojo
