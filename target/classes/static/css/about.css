@@ -1,0 +1,152 @@
+/*Editor Mo;Time 2019/5/18;Tool idea;Tel 15360694561*/
+/*小于992px的屏幕隐藏分页面导航*/
+
+@media (max-width: 992px) {
+    .body-nav-hide {
+        display: none !important;
+    }
+
+    .side-nav {
+        position: fixed !important;
+        border-radius: 0;
+        background-color: rgba(0, 0, 0, 0);
+        width: 150px !important;
+        height: auto;
+        right: 0;
+        opacity: 1;
+        z-index: 1099;
+    }
+
+    .body_nav a:link, .body_nav a:visited {
+        font-size: 15px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .drag-hide {
+        display: none !important;
+    }
+
+    .unDrag-hide {
+        display: none !important;
+    }
+
+    .body_nav {
+        display: block !important;
+    }
+
+    .nav-hide {
+        display: none !important;
+    }
+
+}
+
+/*地址显示*/
+._location {
+    width: 100%;
+    border-bottom: #5e5e5e dotted 1px;
+    margin: 0 0 15px 0;
+}
+
+._location ul {
+    padding-left: 0;
+}
+
+._location ul li {
+    display: inline-block;
+    font-size: 12px;
+}
+
+._location a:link, ._location a:visited {
+    color: black;
+}
+
+._location a:hover, ._location a:active {
+    color: #03142e;
+}
+
+/*左侧导航*/
+.body_nav {
+    width: 100%;
+    background-color: #ffffff;
+    float: left;
+    border: 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.body_nav ul {
+    padding: 0;
+    font-size: 0;
+    text-align: center;
+    width: 100%;
+    background-color: #f8f8f8;
+}
+
+.body_nav ul li {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.body_nav a:link, .body_nav a:visited {
+    font-family: 楷体;
+    color: black;
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.body_nav a:hover, .body_nav a:active {
+    color: #ffffff;
+    background-color: #03142e;
+}
+
+/*分页面子菜单默认选中*/
+.li-active {
+    background-color: #03142e;
+    color: #ffffff;
+}
+
+.li-active a:link, .li-active a:visited {
+    color: #ffffff;
+}
+
+/*分页面导航默认显示*/
+/*.body-nav-hide{*/
+/*display: block;*/
+/*}*/
+
+.draggable-ui {
+    background-color: #03142e;
+    right: 0;
+    top: 50%;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 0px solid red;
+    border-radius: 40px;
+    overflow: hidden;
+    opacity: 0.5;
+    z-index: 1100;
+}
+
+.draggable-ui span {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 9px;
+    margin-left: 10px;
+
+}
+
+.nav-hide {
+    display: none;
+}
+
+.unDrag-hide {
+    display: none;
+}

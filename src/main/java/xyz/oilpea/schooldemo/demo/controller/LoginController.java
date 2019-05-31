@@ -38,9 +38,9 @@ public class LoginController {
     public void insert(){
 
     }
-    @RequestMapping("/login")
+    @RequestMapping("/test")
     public String testFreeMarker(ModelMap modelMap){
         modelMap.addAttribute("msg","heelo,msg");
-        return "index";
+        return "freemarker";
     }
 }
