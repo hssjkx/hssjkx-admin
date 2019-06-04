@@ -11,4 +11,12 @@ public class IndexController {
         modelMap.addAttribute("msg","heelo,msg");
         return "index";
     }
+    @RequestMapping("/add")
+    public String addArticle(ModelMap modelMap){
+        return "add_article";
+    }
+    @RequestMapping("/testadd")
+    public String testAdd(ModelMap modelMap){
+        return "addtest";
+    }
 }
