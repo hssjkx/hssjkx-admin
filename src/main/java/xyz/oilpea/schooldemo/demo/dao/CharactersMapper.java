@@ -3,13 +3,13 @@ package xyz.oilpea.schooldemo.demo.dao;
 import xyz.oilpea.schooldemo.demo.pojo.Characters;
 
 public interface CharactersMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Characters record);
 
     int insertSelective(Characters record);
 
-    Characters selectByPrimaryKey(Integer id);
+    Characters selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Characters record);
 

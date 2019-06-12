@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.oilpea.schooldemo.demo.dao.AlumniMapper">
   <resultMap id="BaseResultMap" type="xyz.oilpea.schooldemo.demo.pojo.Alumni">
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="stu_number" jdbcType="VARCHAR" property="stuNumber" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="avator" jdbcType="VARCHAR" property="avator" />
@@ -17,23 +17,23 @@
   <sql id="Blob_Column_List">
     description
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from alumni
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from alumni
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="xyz.oilpea.schooldemo.demo.pojo.Alumni">
     insert into alumni (id, stu_number, name, 
       avator, create_time, description
       )
-    values (#{id,jdbcType=INTEGER}, #{stuNumber,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{stuNumber,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{avator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{description,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -61,7 +61,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="stuNumber != null">
         #{stuNumber,jdbcType=VARCHAR},
@@ -99,7 +99,7 @@
         description = #{description,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="xyz.oilpea.schooldemo.demo.pojo.Alumni">
     update alumni
@@ -108,7 +108,7 @@
       avator = #{avator,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       description = #{description,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="xyz.oilpea.schooldemo.demo.pojo.Alumni">
     update alumni
@@ -116,6 +116,6 @@
       name = #{name,jdbcType=VARCHAR},
       avator = #{avator,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

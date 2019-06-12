@@ -1,12 +1,8 @@
 package xyz.oilpea.schooldemo.demo.pojo;
 
-import org.springframework.stereotype.Repository;
-
 import java.util.Date;
-
-@Repository
 public class News {
-    private Integer id;
+    private Long id;
 
     private String title;
 
@@ -18,11 +14,11 @@ public class News {
 
     private String content;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

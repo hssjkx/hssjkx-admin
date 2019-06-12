@@ -3,13 +3,13 @@ package xyz.oilpea.schooldemo.demo.dao;
 import xyz.oilpea.schooldemo.demo.pojo.Major;
 
 public interface MajorMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Major record);
 
     int insertSelective(Major record);
 
-    Major selectByPrimaryKey(Integer id);
+    Major selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Major record);
 

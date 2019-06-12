@@ -3,25 +3,25 @@ package xyz.oilpea.schooldemo.demo.pojo;
 import java.util.Date;
 
 public class Carousel {
-    private Integer id;
+    private Long id;
 
-    private Integer newsId;
+    private Long newsId;
 
     private Date createTime;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getNewsId() {
+    public Long getNewsId() {
         return newsId;
     }
 
-    public void setNewsId(Integer newsId) {
+    public void setNewsId(Long newsId) {
         this.newsId = newsId;
     }
 

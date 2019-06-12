@@ -3,7 +3,7 @@ package xyz.oilpea.schooldemo.demo.pojo;
 import java.util.Date;
 
 public class Competition {
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -11,11 +11,11 @@ public class Competition {
 
     private String content;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

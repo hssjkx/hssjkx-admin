@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.oilpea.schooldemo.demo.dao.NewsMapper">
   <resultMap id="BaseResultMap" type="xyz.oilpea.schooldemo.demo.pojo.News">
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="title" jdbcType="CHAR" property="title" />
     <result column="category" jdbcType="VARCHAR" property="category" />
     <result column="cover" jdbcType="CHAR" property="cover" />
@@ -17,23 +17,32 @@
   <sql id="Blob_Column_List">
     content
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from news
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByLikeStr" parameterType="String" resultType="xyz.oilpea.schooldemo.demo.pojo.News">
+        select * from news where title like CONCAT(CONCAT('%',${str},'%'),'%')
+    </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from news
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByArr" parameterType="String">
+    delete from news where id in <foreach collection="array" item="item" open="(" separator="," close=")">
+        #{item}
+  </foreach>
+
   </delete>
   <insert id="insert" parameterType="xyz.oilpea.schooldemo.demo.pojo.News">
     insert into news (id, title, category, 
       cover, create_time, content
       )
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=CHAR}, #{category,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=CHAR}, #{category,jdbcType=VARCHAR}, 
       #{cover,jdbcType=CHAR}, #{createTime,jdbcType=DATE}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -61,7 +70,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="title != null">
         #{title,jdbcType=CHAR},
@@ -99,7 +108,7 @@
         content = #{content,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="xyz.oilpea.schooldemo.demo.pojo.News">
     update news
@@ -108,7 +117,7 @@
       cover = #{cover,jdbcType=CHAR},
       create_time = #{createTime,jdbcType=DATE},
       content = #{content,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="xyz.oilpea.schooldemo.demo.pojo.News">
     update news
@@ -116,6 +125,6 @@
       category = #{category,jdbcType=VARCHAR},
       cover = #{cover,jdbcType=CHAR},
       create_time = #{createTime,jdbcType=DATE}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

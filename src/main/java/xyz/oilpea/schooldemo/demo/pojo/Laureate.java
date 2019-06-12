@@ -3,7 +3,7 @@ package xyz.oilpea.schooldemo.demo.pojo;
 import java.util.Date;
 
 public class Laureate {
-    private Integer id;
+    private Long id;
 
     private String stuNumber;
 
@@ -15,11 +15,11 @@ public class Laureate {
 
     private String description;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

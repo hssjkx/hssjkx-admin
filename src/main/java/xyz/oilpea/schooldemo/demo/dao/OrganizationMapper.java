@@ -3,13 +3,13 @@ package xyz.oilpea.schooldemo.demo.dao;
 import xyz.oilpea.schooldemo.demo.pojo.Organization;
 
 public interface OrganizationMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Organization record);
 
     int insertSelective(Organization record);
 
-    Organization selectByPrimaryKey(Integer id);
+    Organization selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Organization record);
 

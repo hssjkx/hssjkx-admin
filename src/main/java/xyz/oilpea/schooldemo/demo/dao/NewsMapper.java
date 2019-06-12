@@ -1,23 +1,30 @@
 package xyz.oilpea.schooldemo.demo.dao;
 
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import xyz.oilpea.schooldemo.demo.pojo.News;
 
-@Mapper
+import java.util.List;
+
 @Repository
 public interface NewsMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(News record);
 
     int insertSelective(News record);
 
-    News selectByPrimaryKey(Integer id);
+    News selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(News record);
 
     int updateByPrimaryKeyWithBLOBs(News record);
 
     int updateByPrimaryKey(News record);
+
+    @Select("select * from news")
+    List<News> selectAllNews();
+    List<News> selectByLikeStr(@Param("str") String str);
+    int deleteByArr(String ids[]);
 }

@@ -3,21 +3,21 @@ package xyz.oilpea.schooldemo.demo.pojo;
 import java.util.Date;
 
 public class Win {
-    private Integer id;
+    private Long id;
 
     private Integer ranking;
 
-    private Integer compeId;
+    private Long compeId;
 
-    private Integer laureateId;
+    private Long laureateId;
 
     private Date createTime;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -29,19 +29,19 @@ public class Win {
         this.ranking = ranking;
     }
 
-    public Integer getCompeId() {
+    public Long getCompeId() {
         return compeId;
     }
 
-    public void setCompeId(Integer compeId) {
+    public void setCompeId(Long compeId) {
         this.compeId = compeId;
     }
 
-    public Integer getLaureateId() {
+    public Long getLaureateId() {
         return laureateId;
     }
 
-    public void setLaureateId(Integer laureateId) {
+    public void setLaureateId(Long laureateId) {
         this.laureateId = laureateId;
     }
 

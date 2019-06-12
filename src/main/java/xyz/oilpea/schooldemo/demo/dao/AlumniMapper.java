@@ -1,15 +1,17 @@
 package xyz.oilpea.schooldemo.demo.dao;
 
+import org.springframework.stereotype.Repository;
 import xyz.oilpea.schooldemo.demo.pojo.Alumni;
 
+@Repository
 public interface AlumniMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Alumni record);
 
     int insertSelective(Alumni record);
 
-    Alumni selectByPrimaryKey(Integer id);
+    Alumni selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Alumni record);
 
