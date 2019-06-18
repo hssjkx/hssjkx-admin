@@ -12,7 +12,7 @@ public class IndexController {
         modelMap.addAttribute("msg","heelo,msg");
         return "index";
     }
-    @RequestMapping("/add")
+    @RequestMapping("/addnews")
     public String addArticle(ModelMap modelMap){
         return "add_article";
     }

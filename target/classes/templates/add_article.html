@@ -70,6 +70,21 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-12">
+                                        <label for="type">类别</label>
+                                        <div class="form-controls">
+                                            <select name="type" class="form-control" id="sontype">
+                                                <option value="1">学院概况</option>
+                                                <option value="2">本科教育</option>
+                                                <option value="3">学术科研</option>
+                                                <option value="4">党团建设</option>
+                                                <option value="5">学生工作</option>
+                                                <option value="6">招生就业</option>
+                                                <option value="7">信工风采</option>
+                                                <option value="8">校友会</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
                                         <label for="title">标题</label>
                                         <input type="text" class="form-control" id="title" name="title" value=""
                                                placeholder="请输入标题"/>
@@ -79,11 +94,11 @@
 <!--                                        <input type="text" class="form-control" id="seo_keywords" name="seo_keywords"-->
 <!--                                               value="" placeholder="关键词"/>-->
 <!--                                    </div>-->
-                                    <div class="form-group col-md-12">
-                                        <label for="seo_description">描述</label>
-                                        <textarea class="form-control" id="seo_description" name="seo_description"
-                                                  rows="5" value="" placeholder="描述"></textarea>
-                                    </div>
+<!--                                    <div class="form-group col-md-12">-->
+<!--                                        <label for="seo_description">描述</label>-->
+<!--                                        <textarea class="form-control" id="seo_description" name="seo_description"-->
+<!--                                                  rows="5" value="" placeholder="描述"></textarea>-->
+<!--                                    </div>-->
                                     <div class="form-group col-md-12">
                                         <label>封面</label>
                                         <div class="form-controls">
@@ -186,10 +201,10 @@
 <!--                                        <input class="js-tags-input form-control" type="text" id="tags" name="tags"-->
 <!--                                               value=""/>-->
 <!--                                    </div>-->
-                                    <div class="form-group col-md-12">
-                                        <label for="sort">排序</label>
-                                        <input type="text" class="form-control" id="sort" name="sort" value="0"/>
-                                    </div>
+<!--                                    <div class="form-group col-md-12">-->
+<!--                                        <label for="sort">排序</label>-->
+<!--                                        <input type="text" class="form-control" id="sort" name="sort" value="0"/>-->
+<!--                                    </div>-->
                                     <div class="form-group col-md-12">
                                         <label for="status">状态</label>
                                         <div class="clearfix">
@@ -206,7 +221,6 @@
                                                 target-form="add-form">确
                                             定
                                         </button>
-                                        <input type="button" value="test" onclick="add()">
                                         <!--                                        <button  class="btn btn-primary ajax-post" onclick="add()">测试-->
                                         </button>
                                         <button type="button" class="btn btn-default"
@@ -271,6 +285,17 @@
 <script type="text/javascript" src="/static/js/jquery.base64.js"></script>
 <script>
     $.base64.utf8encode = true;
+    $("#type").change(function () {
+        var option = $(this).children('option:selected').val()
+        var list = []
+        switch(option){
+            case '0':
+                list = []
+        }
+
+
+    })
+
 
     var editor = new FroalaEditor('#editor', {
         theme: 'gray',
@@ -292,13 +317,15 @@
         let title = $('#title').val()
         let category = $('#type').val()
         let content = editor.html.get()
+        let type = $('#type').val()
         $.ajax({
             url: '/addnews',
             method: 'POST',
             data: JSON.stringify({
                 title,
                 category,
-                content
+                content,
+                type
             }),
             contentType: 'application/json',
             success: res => {
@@ -313,53 +340,7 @@
 
 <script>
 
-    // function submitnews() {
-    //     alert('submit')
-    //     let title = $('#title').val()
-    //     let category = $('#type').val()
-    //     let content = $('#edit').html()
-    //
-    //     return
-    //     $.ajax({
-    //         url: '/addnews',
-    //         method: 'POST',
-    //         data: JSON.stringify({
-    //             title,
-    //             category,
-    //             content
-    //         }),
-    //         contentType: 'application/json',
-    //         success: res => {
-    //             alert(res)
-    //         },
-    //         fail: err => {
-    //             alert(err)
-    //         }
-    //     })
-    //
-    //     return false
-    // }
 
-    // function add() {
-    //     alert('submit')
-    //     $.ajax({
-    //         type: "POST",                           //通过POST方式上传请求
-    //         contentType: "application/json",//上传内容格式为json结构
-    //         data: JSON.stringify({
-    //             title:'abc',
-    //             category:'abcd',
-    //             content:'acbde',
-    //             cover:'abcd'
-    //         }),                                 //上传的参数
-    //         url: "/addnews",     //请求的url。与后端@Request Mapping注解中的值一致。
-    //         success: function () {		      //请求成功的回调函数
-    //             alert("添加用户成功")
-    //         },
-    //         error: function (e) {		      //请求失败的回调函数
-    //             alert("添加用户失败")
-    //         }
-    //     })
-    // }
 </script>
 </body>
 </body>

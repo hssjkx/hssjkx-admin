@@ -1,5 +1,6 @@
 package xyz.oilpea.schooldemo.demo.dao;
 
+import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -24,7 +25,8 @@ public interface NewsMapper {
     int updateByPrimaryKey(News record);
 
     @Select("select * from news")
-    List<News> selectAllNews();
+    Page<News> selectAllNews();
+
     List<News> selectByLikeStr(@Param("str") String str);
     int deleteByArr(String ids[]);
 }

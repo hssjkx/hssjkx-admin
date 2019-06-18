@@ -1,5 +1,6 @@
 package xyz.oilpea.schooldemo.demo.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,11 @@ public class NewsServiceImpl implements NewsService {
         List<News> newsList = newsMapper.selectAllNews();
         PageInfo<News> pageInfo = new PageInfo<>(newsList);
         return pageInfo;
+    }
+
+    @Override
+    public Page<News> getAllNews() {
+        return newsMapper.selectAllNews();
     }
 
     @Override

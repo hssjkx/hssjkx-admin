@@ -1,5 +1,7 @@
 package xyz.oilpea.schooldemo.demo.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import java.util.Map;
 public class NewsController {
     @Autowired
     NewsService newsService;
+
     @ResponseBody
     @PostMapping("/addnews")
     public Map addNews(@RequestBody News news) {
@@ -27,6 +30,7 @@ public class NewsController {
         map.put("status", 201);
         return map;
     }
+
     @ResponseBody
     @PostMapping("/update")
     public Map updateNews(@RequestBody News newnews) {
@@ -36,7 +40,7 @@ public class NewsController {
         try {
             newsService.updateNews(newnews);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             map.put("status", 202);
         }
         return map;
@@ -44,7 +48,7 @@ public class NewsController {
 
     @ResponseBody
     @RequestMapping("/testid")
-    public String testId(){
+    public String testId() {
         return "abc";
     }
 
@@ -58,18 +62,21 @@ public class NewsController {
 //    }
 
     @RequestMapping("/edit")
-    public String editArticle(ModelMap modelMap,long id){
-        modelMap.addAttribute("news",newsService.selectNewsById(id));
+    public String editArticle(ModelMap modelMap, long id) {
+        modelMap.addAttribute("news", newsService.selectNewsById(id));
         return "edit_news";
     }
-    @RequestMapping("/news")
-    public String newspage(int pageNum, int pageSize, ModelMap modelMap){
-        NewsVo newsVo = new NewsVo("",pageSize,pageNum);
-        PageInfo newsList =  newsService.selectAllNews(newsVo);
-        modelMap.addAttribute("aaa","bbb");
 
+    @RequestMapping("/news")
+    public String newspage(int pageNum,  ModelMap modelMap) {
+//        NewsVo newsVo = new NewsVo("",pageSize,pageNum);
+        PageHelper.startPage(pageNum, 10);
+        Page<News> newsList = newsService.getAllNews();
+//        PageInfo newsList =  newsService.selectAllNews(newsVo);
+//        modelMap.addAttribute("aaa","bbb");
 //        modelMap.addAttribute("newsList", new Gson().toJson(newsList));
-        modelMap.addAttribute("newsList", newsList.getList());
+        modelMap.addAttribute("page", pageNum);
+        modelMap.addAttribute("newsList", newsList);
         return "list_news";
     }
 
@@ -83,7 +90,7 @@ public class NewsController {
     }
 
     @GetMapping("/searchnews")
-    public String search(String str,ModelMap modelMap){
+    public String search(String str, ModelMap modelMap) {
         List list = newsService.searchNews(str);
 //        System.out.println(list.size());
         modelMap.addAttribute("newsList", list);

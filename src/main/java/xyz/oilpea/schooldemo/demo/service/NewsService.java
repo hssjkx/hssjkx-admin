@@ -1,5 +1,6 @@
 package xyz.oilpea.schooldemo.demo.service;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import xyz.oilpea.schooldemo.demo.pojo.News;
 import xyz.oilpea.schooldemo.demo.vo.NewsVo;
@@ -18,4 +19,6 @@ public interface NewsService {
     void updateNews(News news);
 
     List<News> searchNews(String str);
+
+    Page<News> getAllNews();
 }

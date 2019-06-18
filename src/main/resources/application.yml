@@ -29,6 +29,16 @@ spring:
   mvc:
     static-path-pattern: /static/**
   resources:
+  devtools:
+    restart:
+      poll-interval: 3000ms
+      quiet-period: 2999ms
 mybatis:
   mapper-locations: classpath:/mapping/*.xml  #classpath就是应用程序resources的路径
   type-aliases-package: xyz.oilpea.schooldemo.demo.pojo
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
